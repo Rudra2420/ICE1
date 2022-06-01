@@ -50,12 +50,32 @@ public class CardTrickICE1 {
                 break;
             }
         }
+        
+        
 
         if(result == true){
             System.out.println("Match found!!");
         }else{
             System.out.println("Sorry match not found!!");
         } 
+        
+        boolean result = false;
+        Card luckyCard = new Card();
+        luckyCard.setValue(9);
+        luckyCard.setSuit(Card.SUIT[2]);
+        
+        for(int i = 0; i< cardonhand.length; i++){
+        if(cardonhand[i].getValue() == luckyCard.getValue() && cardonhand[i].getSuit().equalsIgnoreCase(luckyCard.getSuit()))
+        { 
+            result = true;
+            break;
+        }
+        }
+        
+        if (result)
+            System.out.println("Lucky card found in Magic Hand");
+        else
+            System.out.println("Lucky card not found in Magic Hand ")
     }
     
 }
