@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package cardtrickice1;
-
+import java.util.*;
 /** step1 : generate 7 random cards and store in array - how
  * step 2: take any card input from user suit,number
  * step 3: user card is in  the array 'card is found
@@ -18,16 +18,44 @@ public class CardTrickICE1 {
      */
     public static void main(String[] args) 
     {
-        Card[] magicHand = new Card[7]; //Array of object
-        for( int i=0;i<magicHand.length;i++)
-        {
-            Card c1 = new Card();
-            c1.setValue(2);//use a method to generate random *13
-            c1.setSuits("hearts");//random method suit 
-        }
-        //step 2:take input 
+        int value;
+        String suit;
+        boolean result = false;
         
-        //step 3: match with array 
+        Scanner input = new Scanner(System.in);
+        Card[] cardonhand =new Card[7];
+        Random rn = new Random();
+        Card ct = new Card();
+        Card ucard = new Card();
+
+        for(int i=0; i<cardonhand.length; i++){
+            ct.setValue(rn.nextInt(13)+1);
+            ct.setSuit(Card.SUITS[rn.nextInt(4)]);
+            cardonhand[i] = ct;
+        }
+
+        System.out.println("Please choose the suit:");
+        System.out.println(Arrays.toString(Card.SUITS));
+        suit = input.next();
+        ucard.setSuit(suit);
+
+        System.out.println("Enter the value of the card between 1 to 13 :");
+        value = input.nextInt();
+        ucard.setValue(value);
+
+        for(int i=0; i<cardonhand.length; i++){
+            
+            if(cardonhand[i].getValue() == ucard.getValue() && cardonhand[i].getSuit().equals(ucard.getSuit())){
+                result = true;
+                break;
+            }
+        }
+
+        if(result == true){
+            System.out.println("Match found!!");
+        }else{
+            System.out.println("Sorry match not found!!");
+        } 
     }
     
 }

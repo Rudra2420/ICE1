@@ -12,37 +12,30 @@ package cardtrickice1;
  */
 public class Card 
 {
-    private int value;
-    private String suits; //encapsulation
-    //constant
-    public static final String [] SUITS = { "diamonds","clubs","spades","hearts"};
+    private String suit; //clubs, spades, diamonds, hearts
+    private int value;//1-13
+    
+    public static final String [] SUITS = {"1: Hearts", "2: Diamonds", "3: Spades", "4: Clubs"};
+    
+   
+    public String getSuit() {
+        return suit;
+    }
 
-    /**
-     * @return the value
-     */
+    public void setSuit(String suit) {
+        this.suit = suit;
+    }
+
     public int getValue() {
         return value;
     }
 
-    /**
-     * @param value the value to set
-     */
     public void setValue(int value) {
         this.value = value;
     }
-
-    /**
-     * @return the suits
-     */
-    public String getSuits() {
-        return suits;
-    }
-
-    /**
-     * @param suits the suits to set
-     */
-    public void setSuits(String suits) {
-        this.suits = suits;
+   
+    public String ToString(){
+        return getValue() + "" + getSuit();
     }
    //number
     
